@@ -1,10 +1,10 @@
-# 🚀 Installation du projet P8
+# 🚀 Installation du projet P10
 
 ## 📥 1. Cloner le projet
 Clonez le dépôt sur votre machine locale :
 ```bash
-git clone https://github.com/LucasSch1/P8.git
-cd P8
+git clone https://github.com/LucasSch1/P10.git
+cd P10
 ```
 ## ⚙️ 2. Installer les dépendances
 Exécutez la commande suivante pour installer les dépendances PHP :
