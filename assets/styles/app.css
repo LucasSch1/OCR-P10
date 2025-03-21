@@ -487,6 +487,29 @@ form .select2-container--default .select2-selection--multiple .select2-selection
     font-size: 16px;
 }
 
+
+
+
+/*Page d'inscription */
+
+#main-container-logout{
+    background: url("../img/background-logout.png");
+    background-size: cover;
+    height: 100vh;
+}
+
+#main-container-logout .container-form .register-title {
+    margin : 0;
+}
+
+#main-container-logout .container-form {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    margin: 0 50% 0 50%;
+    background: #4D8077;
+}
+
 @media (max-width: 992px) {
     nav {
         width: 150px;
