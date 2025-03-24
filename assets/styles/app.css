@@ -496,6 +496,9 @@ form .select2-container--default .select2-selection--multiple .select2-selection
     background: url("../img/background-logout.png");
     background-size: cover;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #main-container-logout .container-form .register-title {
@@ -505,10 +508,62 @@ form .select2-container--default .select2-selection--multiple .select2-selection
 #main-container-logout .container-form {
     display: flex;
     flex-direction: column;
-    width: max-content;
-    margin: 0 50% 0 50%;
     background: #4D8077;
+    align-items: center;
+    padding-left: 13%;
+    padding-right: 13%;
+    justify-content: center;
+    height: max-content;
+    border-radius: 30px;
+    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.03);
 }
+
+#main-container-logout .container-form .register-title {
+    padding-top: 52px;
+    padding-bottom: 47px;
+    color: #FFFFFF;
+}
+
+
+#main-container-logout .container-form label{
+    color: #FFFFFF;
+}
+
+#main-container-logout .container-logo{
+    position: fixed;
+    top: 3%;
+    left: 3%;
+}
+
+#main-container-logout .container-form .button-submit-registration{
+    width: 100%;
+    background: #1F5B50;
+    border-radius: 10px;
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    justify-content: center;
+    border: none;
+    color: #ffffff;
+    height: 70px;
+    margin-top: 27px;
+}
+
+
+#main-container-logout .container-form .link-login{
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    margin-bottom: 44px;
+}
+
+
 
 @media (max-width: 992px) {
     nav {
