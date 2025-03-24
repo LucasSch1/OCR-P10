@@ -1,0 +1,25 @@
+{% extends 'base-logout.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+    <div class="container-logo">
+        <img src="{{ asset('img/logo.png') }}" alt="logo">
+    </div>
+    <div class="container-form">
+        <div class="row">
+            <h1 class="register-title">Bienvenue sur TaskLinker</h1>
+            <p>Commencez dès maintenant - gratuitement</p>
+        </div>
+
+
+
+
+        <button type="submit" class="button-submit-registration">Continuer</button>
+
+        <a class="link-login" href="register.html.twig">Vous avez déja un compte ?</a>
+        {{ form_end(registrationForm) }}
+    </div>
+
+
+{% endblock %}
