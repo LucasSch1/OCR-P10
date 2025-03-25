@@ -8,17 +8,22 @@
     </div>
     <div class="container-form">
         <div class="row">
-            <h1 class="register-title">Bienvenue sur TaskLinker</h1>
-            <p>Commencez dès maintenant - gratuitement</p>
+            <h1 class="welcome-title">Bienvenue sur TaskLinker</h1>
+            <h2>Commencez dès maintenant - gratuitement</h2>
         </div>
 
+        <h3 class="link-login-welcome" >Vous avez déja un compte ?</h3>
 
+        <a type="submit" class="button-login">Se connecter</a>
 
+        <div class="separator">
+            <div class="separator-line"></div>
+            <span>ou</span>
+            <div class="separator-line"></div>
+        </div>
 
-        <button type="submit" class="button-submit-registration">Continuer</button>
+        <a type="submit" class="button-registration" href="{{ path('app_register') }}" >S'inscrire</a>
 
-        <a class="link-login" href="register.html.twig">Vous avez déja un compte ?</a>
-        {{ form_end(registrationForm) }}
     </div>
 
 
