@@ -551,6 +551,12 @@ form .select2-container--default .select2-selection--multiple .select2-selection
     margin-top: 27px;
 }
 
+#main-container-logout .container-form .button-submit-registration:hover{
+    background: #E5F6DC;
+    color: #1C5B50;
+    cursor: pointer;
+}
+
 
 #main-container-logout .container-form .link-login{
     display: flex;
@@ -564,6 +570,184 @@ form .select2-container--default .select2-selection--multiple .select2-selection
 }
 
 
+
+
+
+
+
+
+
+/*Page de bienvenue*/
+#main-container-logout .container-form .row .welcome-title{
+    color: #FFFFFF;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 143px;
+}
+
+#main-container-logout .container-form .row h2{
+    color: #FFF;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+
+#main-container-logout .container-form .link-login-welcome{
+    color: #FFFFFF;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    margin-top: 80px;
+    margin-bottom: 0px;
+}
+
+
+
+#main-container-logout .container-form .button-login{
+    width: 224px;
+    background: #1F5B50;
+    border-radius: 10px;
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    justify-content: center;
+    border: none;
+    color: #ffffff;
+    height: 70px;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+
+#main-container-logout .container-form .button-login:hover{
+    background: #E5F6DC;
+    color: #1C5B50;
+    cursor: pointer;
+
+}
+
+
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 77%;
+}
+
+.separator-line {
+    flex: 1;
+    height: 1px;
+    background-color: white;
+    margin: 0 10px;
+}
+
+#main-container-logout .container-form .button-registration{
+    width: 224px;
+    background: #B1D89D;
+    border-radius: 10px;
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    justify-content: center;
+    border: none;
+    color: #4D8077;
+    height: 70px;
+    margin-top: 27px;
+    margin-bottom: 123px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+
+#main-container-logout .container-form .button-registration:hover{
+    width: 224px;
+    background: #E5F6DC;
+    color: #1C5B50;
+    cursor: pointer;
+}
+
+
+
+/*Page de connexion*/
+#main-container-logout .container-form form .title-login{
+    color: #FFFFFF;
+    font-family: Manrope;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 46px;
+    margin-top: 110px;
+
+}
+
+#main-container-logout .container-form form  .button-submit-login{
+    width: 100%;
+    background: #1F5B50;
+    border-radius: 10px;
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    justify-content: center;
+    border: none;
+    color: #ffffff;
+    height: 70px;
+    margin-top: 27px;
+}
+
+#main-container-logout .container-form  form .button-submit-login:hover{
+    background: #E5F6DC;
+    color: #1C5B50;
+    cursor: pointer;
+}
+
+#main-container-logout .container-form .registration-div p{
+    color: #FFFFFF;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#main-container-logout .container-form .registration-div a{
+    color: #FFFFFF;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+#main-container-logout .container-form .registration-div {
+    margin-bottom: 148px;
+    margin-top: 16px;
+}
 
 @media (max-width: 992px) {
     nav {
