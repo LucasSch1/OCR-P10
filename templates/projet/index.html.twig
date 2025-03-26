@@ -1,54 +1,47 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ projet.nomProjet }} - TaskLinker{% endblock %}
+{% block header %}
+    <div class="flex-header">
+        <h1>{{ projet.nomProjet }}</h1>
+        <div class="user-list">
+            {% for employeProjet in employesProjet %}
+                <div class="avatar">{{ employeProjet.prenom|default('')|slice(0, 1)|upper}}{{ employeProjet.nom|default('')|slice(0, 1)|upper}}</div>
+            {% endfor %}
+        </div>
+        <a class="button" href="{{ path('app_projet_edit',{'id': projet.id})  }}">Modifier</a>
+    </div>
+{% endblock %}
 {% block body %}
-    <main>
-        <header>
-            <div id="current-user"></div>
-            <div id="title-page">
-                <div class="flex-header">
-                    <h1>{{ projet.nomProjet }}</h1>
-                    <div class="user-list">
-                        {% for employeProjet in employesProjet %}
-                        <div class="avatar">{{ employeProjet.prenom|default('')|slice(0, 1)|upper}}{{ employeProjet.nom|default('')|slice(0, 1)|upper}}</div>
-                        {% endfor %}
-                    </div>
-                    <a class="button" href="{{ path('app_projet_edit',{'id': projet.id})  }}">Modifier</a>
-                </div>
-            </div>
-        </header>
-        <div id="content">
-            <div id="tasks-container">
-                {% for statut in statuts %}
-                <div class="task-column">
-                    <h2>{{ statut.libelle }}</h2>
-                    <div class="tasks-list">
-                        {% set hasTasks = false %}
-                        {% for tache in projet.taches %}
-                            {% if tache.statut and tache.statut.id == statut.id %}
-                                {% set hasTasks = true %}
-                                <a class="task" href="{{ path('app_tache_edit',{'id': tache.id}) }}">
-                                    <h3>{{tache.titre}}</h3>
-                                    <p>{{tache.description}}</p>
-                                    <div class="task-infos">
-                                        <div class="task-deadline">
-                                            <i class="fa-regular fa-calendar"></i> {{ tache.deadline|date('d/m/Y') }}
-                                        </div>
-                                        {% if tache.employe %}
+    <div id="tasks-container">
+        {% for statut in statuts %}
+            <div class="task-column">
+                <h2>{{ statut.libelle }}</h2>
+                <div class="tasks-list">
+                    {% set hasTasks = false %}
+                    {% for tache in projet.taches %}
+                        {% if tache.statut and tache.statut.id == statut.id %}
+                            {% set hasTasks = true %}
+                            <a class="task" href="{{ path('app_tache_edit',{'id': tache.id}) }}">
+                                <h3>{{tache.titre}}</h3>
+                                <p>{{tache.description}}</p>
+                                <div class="task-infos">
+                                    <div class="task-deadline">
+                                        <i class="fa-regular fa-calendar"></i> {{ tache.deadline|date('d/m/Y') }}
+                                    </div>
+                                    {% if tache.employe %}
                                         <div class="mini-user">
                                             {{ tache.employe.prenom|default('')|slice(0, 1)|upper}}{{ tache.employe.nom|default('')|slice(0, 1)|upper}}
                                         </div>
-                                        {% endif %}
-                                    </div>
-                                </a>
-                            {% endif %}
-                        {% endfor %}
-                        <a href="/projets/{{ projet.id }}/tache-add" class="task-add">
-                            + Ajouter une tâche
-                        </a>
-                    </div>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                    <a href="/projets/{{ projet.id }}/tache-add" class="task-add">
+                        + Ajouter une tâche
+                    </a>
                 </div>
-                {% endfor %}
             </div>
-        </div>
-    </main>
+        {% endfor %}
+    </div>
 {% endblock %}

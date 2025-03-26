@@ -2,37 +2,30 @@
 
 {% block title %}Hello TacheController!{% endblock %}
 
+{% block header %}
+    <h1>Créer une tâche</h1>
+{% endblock %}
 {% block body %}
-    <main>
-        <header>
-            <div id="current-user"></div>
-            <div id="title-page">
-                <h1>Créer une tâche</h1>
-            </div>
-        </header>
-        <div id="content">
-            {{ form_start(formAdd) }}
-                <div>
-                    {{ form_row(formAdd.titre, {label:'Titre de la tâche'}) }}
-                </div>
-                <div>
-                    {{ form_row(formAdd.description, {label:'Description'}) }}
-                </div>
+    {{ form_start(formAdd) }}
+    <div>
+        {{ form_row(formAdd.titre, {label:'Titre de la tâche'}) }}
+    </div>
+    <div>
+        {{ form_row(formAdd.description, {label:'Description'}) }}
+    </div>
 
-                <div class="flex-form">
-                    <div>
-                        {{ form_row(formAdd.deadline, {label:'Date'}) }}
-                    </div>
-                    <div>
-                        {{ form_row(formAdd.statut, {label:'Statut'}) }}
-                    </div>
-                </div>
-                <div>
-                    {{ form_row(formAdd.employe, {label:'Membre'}) }}
-                </div>
-                <br>
-                <button class="button button-submit">Ajouter</button>
-            {{ form_end(formAdd) }}
+    <div class="flex-form">
+        <div>
+            {{ form_row(formAdd.deadline, {label:'Date'}) }}
         </div>
-    </main>
+        <div>
+            {{ form_row(formAdd.statut, {label:'Statut'}) }}
+        </div>
+    </div>
+    <div>
+        {{ form_row(formAdd.employe, {label:'Membre'}) }}
+    </div>
+    <br>
+    <button class="button button-submit">Ajouter</button>
+    {{ form_end(formAdd) }}
 {% endblock %}
