@@ -3,7 +3,13 @@
 {% block body %}
         <main>
             <header>
-                <div id="current-user"></div>
+                <div id="current-user">
+                    {% if app.user %}
+                        <a href="{{ path('app_logout') }}" class="avatar">
+                            {{ app.user.prenom | first }}{{ app.user.nom | first }}
+                        </a>
+                    {% endif %}
+                </div>
                 <div id="title-page">
                     <h1>Projets</h1>
                 </div>
