@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 final class ProjetController extends AbstractController
@@ -38,7 +39,7 @@ final class ProjetController extends AbstractController
     }
 
 
-
+    #[IsGranted('IS_AUTHENTICATED')]
     #[Route('/projets/{id}/view', name: 'app_projet_view')]
     public function index(int $id): Response
     {
@@ -57,9 +58,16 @@ final class ProjetController extends AbstractController
         ]);
     }
 
+
+    #[IsGranted('IS_AUTHENTICATED')]
     #[Route('/projets/projet-add', name: 'app_projet_add')]
-    public function addProjet(Request $request): Response
+    public function addProjet(?Projet $projet ,Request $request): Response
     {
+        if(null == $projet){
+            $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        }
+
+
         $projet = new Projet();
 
 
@@ -88,6 +96,7 @@ final class ProjetController extends AbstractController
         ]);
     }
 
+    #[IsGranted('IS_AUTHENTICATED')]
     #[Route('/projets/{id}/projet-edit', name: 'app_projet_edit')]
     public function editProjet(Request $request, int $id): Response
     {
@@ -125,7 +134,7 @@ final class ProjetController extends AbstractController
 
     }
 
-
+    #[IsGranted('IS_AUTHENTICATED')]
     #[Route('/projets/{id}/projet-delete', name: 'app_projet_delete')]
     public function deleteProjet(Projet $projet, int $id, EntityManagerInterface $entityManager): Response
     {
