@@ -8,7 +8,9 @@
                 <div class="avatar">{{ employeProjet.prenom|default('')|slice(0, 1)|upper}}{{ employeProjet.nom|default('')|slice(0, 1)|upper}}</div>
             {% endfor %}
         </div>
+        {% if is_granted('ROLE_ADMIN') %}
         <a class="button" href="{{ path('app_projet_edit',{'id': projet.id})  }}">Modifier</a>
+        {% endif %}
     </div>
 {% endblock %}
 {% block body %}
@@ -37,9 +39,11 @@
                             </a>
                         {% endif %}
                     {% endfor %}
+                    {% if is_granted('ROLE_ADMIN') %}
                     <a href="/projets/{{ projet.id }}/tache-add" class="task-add">
                         + Ajouter une tâche
                     </a>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
