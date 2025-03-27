@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 final class TacheController extends AbstractController
@@ -34,10 +35,12 @@ final class TacheController extends AbstractController
         }
         return null;
     }
-
+    #[IsGranted('IS_AUTHENTICATED')]
     #[Route('/projets/{id}/tache-add', name: 'app_tache_add')]
     public function index(int $id , Request $request): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $projet = $this->projetRepository->find($id);
         $tache = new Tache();
         $tache->setProjet($projet);
@@ -67,10 +70,11 @@ final class TacheController extends AbstractController
         ]);
     }
 
-
+    #[IsGranted('IS_AUTHENTICATED')]
     #[Route('/projets/{id}/tache-edit', name: 'app_tache_edit')]
     public function editTache( Tache $tache, int $id, Request $request, EntityManagerInterface $entityManager): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $projet = $tache->getProjet();
         $employeProjet = $projet->getEmployes();
 
@@ -95,9 +99,11 @@ final class TacheController extends AbstractController
         ]);
     }
 
+    #[IsGranted('IS_AUTHENTICATED')]
     #[Route('/projets/{id}/tache-delete', name: 'app_tache_delete')]
     public function deleteTache(Tache $tache, int $id, EntityManagerInterface $entityManager): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $projet = $this->tacheRepository->find($id);
         $this->entityManager->remove($tache);
         $this->entityManager->flush();
