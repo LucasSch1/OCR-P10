@@ -41,6 +41,7 @@ final class HomeController extends AbstractController
         ]);
     }
 
+    #[IsGranted('IS_AUTHENTICATED')]
     #[Route('/employes', name: 'app_employes')]
     public function showEmployesPage(): Response
     {
