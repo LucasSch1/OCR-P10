@@ -28,19 +28,21 @@
                             <i class="fa-solid fa-list-check"></i> Projets
                         </a>
                     </li>
-                    <li class="{% if 'employe' in app.request.get('_route') %}active{% endif %}">
-                        <a href="{{ path('app_employes') }}">
-                            <i class="fa-regular fa-user"></i> Équipe
-                        </a>
-                    </li>
+                    {%  if is_granted('ROLE_ADMIN') %}
+                        <li class="{% if 'employe' in app.request.get('_route') %}active{% endif %}">
+                            <a href="{{ path('app_employes') }}">
+                                <i class="fa-regular fa-user"></i> Équipe
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </nav>
             <main>
                 <header>
                     <div id="current-user">
                         {% if app.user %}
-                            <a href="{{ path('app_logout') }}" class="avatar">
-                                {{ app.user.prenom | first }}{{ app.user.nom | first }}
+                            <a href="{{ path('app_logout') }}" class="employee-avatar-login">
+                                {{ app.user.prenom | first | upper }}{{ app.user.nom | first | upper }}
                             </a>
                         {% endif %}
                     </div>
