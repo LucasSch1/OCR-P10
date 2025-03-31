@@ -61,11 +61,10 @@ final class ProjetController extends AbstractController
 
     #[IsGranted('IS_AUTHENTICATED')]
     #[Route('/projets/projet-add', name: 'app_projet_add')]
-    public function addProjet(?Projet $projet ,Request $request): Response
+    public function addProjet(Request $request): Response
     {
-        if(null == $projet){
-            $this->denyAccessUnlessGranted('ROLE_ADMIN');
-        }
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
 
         $projet = new Projet();
