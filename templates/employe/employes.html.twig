@@ -9,6 +9,7 @@
         <tr>
             <th>Prénom, Nom</th>
             <th>Statut</th>
+            <th>Rôle</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -27,6 +28,14 @@
                     </div>
                 </td>
                 <td>{{ employe.typecontrat }}</td>
+                <td>{% for role in employe.roles %}
+                        {% if role == 'ROLE_ADMIN' %}
+                            Chef de projet
+                        {% elseif role == 'ROLE_USER' %}
+                            Collaborateur
+                        {% endif %}
+                        {% if not loop.last %}, {% endif %}
+                    {% endfor %}</td>
                 <td>
                     <a class="button button-edit-team" href="{{ path('app_employe_edit', {'id': employe.id}) }}">
                         Éditer
