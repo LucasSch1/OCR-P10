@@ -29,4 +29,13 @@ class SecurityController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
+
+
+    #[Route('/logout-redirect', name: 'app_post_logout')]
+    public function postLogout(): Response
+    {
+        return $this->redirectToRoute('app_home_default');
+    }
+
+
 }
