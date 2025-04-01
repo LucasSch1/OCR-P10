@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Employe;
 use App\Entity\Projet;
 use App\Form\ProjetType;
 use App\Repository\EmployeRepository;
@@ -44,6 +45,7 @@ final class ProjetController extends AbstractController
     public function index(int $id): Response
     {
         $projet = $this->projetRepository->find($id);
+        $this->denyAccessUnlessGranted('PROJET_ACCES', $projet);
         $statuts = $this->statutRepository->findAll();
         if ($redirect = $this->checkIfProjetIsArchived($projet)) {
             return $redirect;
@@ -144,9 +146,6 @@ final class ProjetController extends AbstractController
         return $this->redirectToRoute('app_home');
 
     }
-
-
-
 
 
 
