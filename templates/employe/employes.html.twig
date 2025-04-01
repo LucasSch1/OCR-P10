@@ -28,14 +28,16 @@
                     </div>
                 </td>
                 <td>{{ employe.typecontrat }}</td>
-                <td>{% for role in employe.roles %}
-                        {% if role == 'ROLE_ADMIN' %}
-                            Chef de projet
-                        {% elseif role == 'ROLE_USER' %}
-                            Collaborateur
-                        {% endif %}
-                        {% if not loop.last %}, {% endif %}
-                    {% endfor %}</td>
+                <td>
+                    {% set role = employe.roles|first%}
+                    {% if role == 'ROLE_ADMIN' %}
+                        Chef de projet
+                    {% elseif role == 'ROLE_USER' %}
+                        Collaborateur
+                    {% else %}
+                        {{ role }}
+                    {% endif %}
+                </td>
                 <td>
                     <a class="button button-edit-team" href="{{ path('app_employe_edit', {'id': employe.id}) }}">
                         Éditer
