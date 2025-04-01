@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Employe;
 use App\Entity\Projet;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -11,9 +12,29 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProjetRepository extends ServiceEntityRepository
 {
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Projet::class);
+    }
+
+
+    public function findProjetsVisibles(Employe $user): array
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.archive = 0');
+
+        if (in_array('ROLE_ADMIN', $user->getRoles())) {
+            return $qb->getQuery()->getResult();
+        }
+
+        return $qb
+            ->join('p.employes', 'e')
+            ->andWhere('e = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult();
+
     }
 
     //    /**
