@@ -25,30 +25,24 @@ final class EmployeController extends AbstractController
     public function editEmploye(int $id, EmployeRepository $employeRepository, Request $request): Response
     {
         $employe = $employeRepository->find($id);
+        if (!$employe) {
+            throw $this->createNotFoundException('Employé non trouvé');
+        }
 
         $formEditEmploye = $this->createForm(EmployeType::class, $employe);
         $formEditEmploye->handleRequest($request);
-        if ($formEditEmploye->isSubmitted()){
-            $errors = $this->validator->validate($formEditEmploye);
-            if (count($errors) > 0) {
-                return new Response('Le formulaire n\'est pas valide', Response::HTTP_BAD_REQUEST);
 
-            }else
-            {
-                $this->entityManager->persist($employe);
-                $this->entityManager->flush();
-                return $this->redirectToRoute('app_employes');
-            }
-
+        if ($formEditEmploye->isSubmitted() && $formEditEmploye->isValid()) {
+            $this->entityManager->flush();
+            return $this->redirectToRoute('app_employes');
         }
 
         return $this->render('employe/edit.html.twig', [
             'employe' => $employe,
             'formEditEmploye' => $formEditEmploye->createView(),
-
         ]);
-
     }
+
 
 
 
