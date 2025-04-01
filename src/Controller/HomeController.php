@@ -34,7 +34,8 @@ final class HomeController extends AbstractController
     #[Route('/projets', name: 'app_home')]
     public function projets(): Response
     {
-        $projets = $this->projetRepository->findBy(['archive'=>0]);
+
+        $projets = $this->projetRepository->findProjetsVisibles($this->getUser());
         return $this->render('index.html.twig', [
             'controller_name' => 'HomeController',
             'projets' => $projets,
