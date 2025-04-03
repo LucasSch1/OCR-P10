@@ -37,5 +37,18 @@ class SecurityController extends AbstractController
         return $this->redirectToRoute('app_home_default');
     }
 
+    #[Route('/redirect-after-login', name: 'app_post_login')]
+    public function postLoginRedirect(): Response
+    {
+        $user = $this->getUser();
+
+        // Si l'utilisateur n'a pas activé la 2FA
+        if (method_exists($user, 'isGoogleAuthenticatorEnabled') && !$user->isGoogleAuthenticatorEnabled()) {
+            return $this->redirectToRoute('app_2fa_setup');
+        }
+
+        return $this->redirectToRoute('app_home');
+    }
+
 
 }
