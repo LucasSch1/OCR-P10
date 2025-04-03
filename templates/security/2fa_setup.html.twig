@@ -1,0 +1,27 @@
+{#<h1>Activer la double authentification</h1>#}
+
+{#<p>Scannez ce QR code avec votre application Google Authenticator :</p>#}
+
+{#<img src="data:image/png;base64,{{ qrImage }}" alt="QR Code" />#}
+
+{#<p>Une fois scanné, déconnectez-vous puis reconnectez-vous pour tester.</p>#}
+
+{% extends 'base-logout.html.twig' %}
+
+{% block body %}
+    <div class="container-logo">
+        <img src="{{ asset('img/logo.png') }}" alt="logo">
+    </div>
+    <div class="container-form">
+        <div class="row">
+            <h1 class="welcome-title">Activer la double authentification</h1>
+
+            <h2>Scannez ce QR code avec votre application Google Authenticator :</h2>
+        </div>
+        <img src="data:image/png;base64,{{ qrImage }}" alt="QR Code" />
+        <p>Une fois scanné, déconnectez-vous puis reconnectez-vous pour tester.</p>
+        <div class="registration-div">
+            <p><a href="{{ path('app_logout') }}">Se déconnecter</a></p>
+        </div>
+    </div>
+{% endblock %}
