@@ -1,0 +1,32 @@
+{% extends 'base-logout.html.twig' %}
+
+{% block body %}
+    <div class="container-logo">
+        <img src="{{ asset('img/logo.png') }}" alt="logo">
+    </div>
+    <div class="container-form">
+        <div class="row">
+            <h1 class="welcome-title">Vérification en deux étapes</h1>
+
+            <h2>Veuillez entrer le code à 6 chiffres généré par votre application Google Authenticator :</h2>
+        </div>
+        <form action="{{ path('2fa_login_check') }}" method="post">
+            <input
+                    type="text"
+                    name="_auth_code"
+                    autocomplete="one-time-code"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    placeholder="123 456"
+                    required
+                    autofocus
+            >
+            <button class="button-submit-login" type="submit">
+                Continuer
+            </button>
+        </form>
+        <div class="registration-div">
+            <p><a href="{{ path('app_logout') }}">Annuler la connexion</a></p>
+        </div>
+    </div>
+{% endblock %}
