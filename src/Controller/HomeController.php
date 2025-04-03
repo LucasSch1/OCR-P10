@@ -21,7 +21,12 @@ final class HomeController extends AbstractController
     #[Route('/', name: 'app_home_default')]
     public function index(): Response
     {
-        return $this->render('welcome.html.twig');
+        if ($this->isGranted("IS_AUTHENTICATED")) {
+            return $this->redirectToRoute('app_home');
+        }
+        else{
+            return $this->render('welcome.html.twig');
+        }
     }
 
 
