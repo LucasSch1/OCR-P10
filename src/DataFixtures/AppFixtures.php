@@ -15,7 +15,7 @@ class AppFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        EmployeFactory::createMany(10);
+//        EmployeFactory::createMany(10);
         ProjetFactory::createMany(3);
         TacheFactory::createMany(10);
 
