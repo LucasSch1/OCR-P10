@@ -35,7 +35,6 @@ final class ProjetFactory extends PersistentProxyObjectFactory
         return [
             'archive' => self::faker()->boolean(0),
             'nomProjet' => ucfirst(self::faker()->word()) . ' ' . self::faker()->randomElement(['Manager', 'System', 'App', 'Tool']),
-            'employes' => LazyValue::new(fn() => EmployeFactory::randomRange(2, 10)),
         ];
     }
 
