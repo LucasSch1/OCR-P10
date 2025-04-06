@@ -66,5 +66,16 @@ symfony serve -d
 ```
 Cliquez ensuite sur le **lien affiché dans la console pour accéder au projet.**
 
+# 🧪 Tester l'application
+
+## 👤 S’inscrire
+Après avoir lancé le serveur, accédez à la page d'inscription via le lien affiché dans le terminal, puis créez un compte en remplissant les informations demandées.
+
+## 🔐 Se connecter avec double authentification (2FA)
+Après l'inscription, connectez-vous. Une étape de configuration du système 2FA (double authentification) peut être nécessaire selon les paramètres de sécurité du projet. Suivez les instructions affichées pour activer et utiliser la 2FA (Google Authenticator).
+
+## 🎭 Changer le rôle d’un utilisateur dans la base de données
+Par défaut, un utilisateur a le rôle `ROLE_USER` (équivalent à **Collaborateur**).  
+Pour tester l’accès d’un **Chef de projet**, modifiez manuellement le rôle en `ROLE_ADMIN` dans la base de données.
 
 
