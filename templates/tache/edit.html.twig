@@ -26,6 +26,7 @@
         {{ form_row(formEdit.employe, {label:'Membre'}) }}
     </div>
     <br>
+    {{ form_rest(formEdit) }}
     <button class="button button-submit">Modifier</button>
     <a href="{{ path('app_tache_delete',{'id': tache.id}) }}" class="delete-task">Supprimer la tâche</a>
     {{ form_end(formEdit) }}
