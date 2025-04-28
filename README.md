@@ -3,8 +3,8 @@
 ## 📥 1. Cloner le projet
 Clonez le dépôt sur votre machine locale :
 ```bash
-git clone https://github.com/LucasSch1/P10.git
-cd P10
+git clone https://github.com/LucasSch1/OCR-P10.git
+cd OCR-P10
 ```
 ## 🛠 2. Configurer la base de données
 Modifiez le fichier **.env** pour **renseigner vos identifiants de connexion à la base de données.** 
