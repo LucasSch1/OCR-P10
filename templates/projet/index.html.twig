@@ -39,11 +39,9 @@
                             </a>
                         {% endif %}
                     {% endfor %}
-                    {% if is_granted('ROLE_ADMIN') %}
                     <a href="/projets/{{ projet.id }}/tache-add" class="task-add">
                         + Ajouter une tâche
                     </a>
-                    {% endif %}
                 </div>
             </div>
         {% endfor %}
