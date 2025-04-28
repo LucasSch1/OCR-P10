@@ -6,14 +6,7 @@ Clonez le dépôt sur votre machine locale :
 git clone https://github.com/LucasSch1/P10.git
 cd P10
 ```
-## ⚙️ 2. Installer les dépendances
-Exécutez la commande suivante pour installer les dépendances PHP :
-```bash
-composer install
-```
-Attendez la fin du téléchargement et de l’installation des ressources.
-
-## 🛠 3. Configurer la base de données
+## 🛠 2. Configurer la base de données
 Modifiez le fichier **.env** pour **renseigner vos identifiants de connexion à la base de données.** 
 
 Voici la configuration attendue :
@@ -21,6 +14,13 @@ Voici la configuration attendue :
 DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
 ```
 **⚠️ Remplacez app et !ChangeMe! par votre identifiant et votre mot de passe réel si nécessaire ainsi que la version de votre base de données.**
+
+## ⚙️ 3. Installer les dépendances
+Exécutez la commande suivante pour installer les dépendances PHP :
+```bash
+composer install
+```
+Attendez la fin du téléchargement et de l’installation des ressources.
 
 ## 🏗 4. Créer et appliquer la base de données
 ➤ Créer la base de données :
@@ -58,6 +58,16 @@ php bin/console doctrine:fixtures:load
 ```
 **Confirmez en tapant yes si demandé.**
 
+### 🔑 Connexion avec les comptes fixtures
+Après avoir chargé les fixtures, vous pouvez utiliser les comptes suivants pour vous connecter :
+
+| Email            | Mot de passe |
+|------------------|--------------|
+| admin@dix.com    | admin        |
+| user1@dix.com    | user1        |
+| user2@dix.com    | user2         |
+
+
 
 ## 🚀 7. Lancer le serveur web
 Démarrez le serveur Symfony en arrière-plan :
@@ -69,7 +79,7 @@ Cliquez ensuite sur le **lien affiché dans la console pour accéder au projet.*
 # 🧪 Tester l'application
 
 ## 👤 S’inscrire
-Après avoir lancé le serveur, accédez à la page d'inscription via le lien affiché dans le terminal, puis créez un compte en remplissant les informations demandées.
+Vous pouvez aussi créer de nouveaux comptes via la page d'inscription affichée sur le site.
 
 ## 🔐 Se connecter avec double authentification (2FA)
 Après l'inscription, connectez-vous. Une étape de configuration du système 2FA (double authentification) peut être nécessaire selon les paramètres de sécurité du projet. Suivez les instructions affichées pour activer et utiliser la 2FA (Google Authenticator).
