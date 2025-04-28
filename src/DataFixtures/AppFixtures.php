@@ -23,7 +23,7 @@ class AppFixtures extends Fixture
         $employeUser1 = new Employe();
         $employeUser1->setNom('Utilisateur1')
             ->setPrenom('Standard')
-            ->setEmail('user@dix.com')
+            ->setEmail('user1@dix.com')
             ->setTypeContrat('CDD')
             ->setPassword($this->hasher->hashPassword($employeUser1, 'user1'))
             ->setDateEntree(new DateTime('2024-09-01'));
@@ -42,7 +42,8 @@ class AppFixtures extends Fixture
         $employeAdmin->setNom('Admin')
             ->setPrenom('Admin')
             ->setEmail('admin@dix.com')
-            ->setTypeContrat('CDD')
+            ->setTypeContrat('CDI')
+            ->setRoles(['ROLE_ADMIN'])
             ->setPassword($this->hasher->hashPassword($employeAdmin, 'admin'))
             ->setDateEntree(new DateTime('2022-09-01'));
         $manager->persist($employeAdmin);
